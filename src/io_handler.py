@@ -57,3 +57,8 @@ def add_to_output(input_file_path, score, found_keywords_str):
     existing_df = pd.read_csv(OUTPUT_FILE_PATH)
     updated_df = pd.concat([existing_df, new_row_df], ignore_index=True)
     updated_df.to_csv(OUTPUT_FILE_PATH, index=False)
+
+
+def get_outputs():
+    df = pd.read_csv(OUTPUT_FILE_PATH)
+    return df.to_dict(orient='records')
