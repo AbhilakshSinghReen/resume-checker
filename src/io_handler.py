@@ -19,3 +19,15 @@ def get_input_files():
     file_names = listdir_without_gitkeep(INPUT_FILES_DIR)
     file_paths = [os.path.join(INPUT_FILES_DIR, file_name) for file_name in file_names]
     return file_paths
+
+
+def get_keywords():
+    keywords_file = os.path.join(DATA_DIR, "keywords.txt")
+    with open(keywords_file, 'r', encoding="utf-8") as f:
+        keywords = f.readlines()
+    
+    keywords = [keyword.strip() for keyword in keywords]
+    keywords = [keyword for keyword in keywords if len(keyword) > 0]
+    keywords = list(set(keywords))
+    
+    return keywords
